@@ -1,1 +1,18 @@
-<p>book works!</p>
+<div class="book">
+  <div class="book__field">
+    Name: <span>{{ book.name }}</span>
+  </div>
+  <div class="book__field">
+    Description: <span>{{ book.description }}</span>
+  </div>
+  <div class="book__field">
+    Category: <span>{{ book.category }}</span>
+  </div>
+  <div class="book__field">
+    Create date: <span>{{ book.createDate }}</span>
+  </div>
+  <div class="book__field">
+    Price: <span>{{ book.price }}</span>
+  </div>
+  <button class="book__button" [disabled]="!book.isAvailable">Buy</button>
+</div>

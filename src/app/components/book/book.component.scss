@@ -1,0 +1,40 @@
+$color-primary: #a3a3a3;
+$color-secondary: #dadada;
+$color-text-primary: #8a8a8a;
+
+.book {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  border: 2px solid $color-primary;
+  border-radius: 2rem;
+  width: 20rem;
+  padding: 1rem;
+
+  &__field {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 500;
+
+    span {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: $color-text-primary;
+    }
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    margin: 0.4rem auto;
+    padding: 1rem;
+    width: 30%;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+
+    &:not([disabled]):hover {
+      background-color: $color-secondary;
+      cursor: pointer;
+    }
+  }
+}
