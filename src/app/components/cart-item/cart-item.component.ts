@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IBook } from 'src/app/models/book.model';
 
 @Component({
   selector: 'app-cart-item',
@@ -6,9 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart-item.component.scss'],
 })
 export class CartItemComponent {
-  /*   constructor() { }
+  @Input() selectedBook: IBook;
 
-  ngOnInit(): void {
+  @Output() deleteBookFromCart = new EventEmitter<IBook>();
+
+  amountOfBooks = 1;
+
+  onIncrementCount(): void {
+    this.amountOfBooks += 1;
   }
- */
+
+  onDecrementCount(): void {
+    this.amountOfBooks -= 1;
+  }
+
+  onDeleteBookFromCart(): void {
+    this.deleteBookFromCart.emit(this.selectedBook);
+  }
 }

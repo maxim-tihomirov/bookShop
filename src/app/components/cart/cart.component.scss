@@ -18,3 +18,12 @@ $color-primary: #c45f40;
     font-weight: 600;
   }
 }
+
+.cart-empty {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  color: rgba($color: #000000, $alpha: 0.6);
+}

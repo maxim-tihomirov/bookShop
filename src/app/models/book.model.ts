@@ -12,4 +12,5 @@ export const enum Category {
   Detective = 'Detective',
   Fantasy = 'Fantasy',
   Business = 'Business & Finance',
+  Novel = 'Novel',
 }

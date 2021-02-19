@@ -3,9 +3,14 @@ $color-secondary: #f0efef;
 $color-accent: #9c0000;
 
 @mixin button-default {
-  cursor: pointer;
+  border: none;
+  outline: none;
   &:not([disabled]):hover {
     opacity: 0.6;
+    cursor: pointer;
+  }
+  &:not([disabled]):active {
+    opacity: 0.9;
   }
 }
 

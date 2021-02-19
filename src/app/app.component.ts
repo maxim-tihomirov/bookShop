@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Category, IBook } from './models/book.model';
 
 @Component({
@@ -6,19 +6,38 @@ import { Category, IBook } from './models/book.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  @ViewChild('appTitle', { static: false })
+  appTitle: ElementRef;
+
   title = 'Book shop';
 
-  book: IBook = {
-    name: 'Book',
-    description: 'string',
-    price: 2,
-    category: Category.Horror,
-    createDate: 2,
-    isAvailable: true,
-  };
+  selectedBook: IBook;
 
-  selectBook(book: IBook) {
-    console.log(book);
+  books: IBook[] = [
+    {
+      name: 'The Black Obelisk',
+      description: 'Is a novel written in 1956',
+      price: 35,
+      category: Category.Novel,
+      createDate: 1956,
+      isAvailable: true,
+    },
+    {
+      name: 'All Quiet on the Western Front',
+      description: 'Is a novel by Erich Maria Remarque',
+      price: 30,
+      category: Category.Novel,
+      createDate: 1929,
+      isAvailable: true,
+    },
+  ];
+
+  ngAfterViewInit(): void {
+    this.appTitle.nativeElement.textContent = 'Books shop';
+  }
+
+  selectBook(book: IBook): void {
+    this.selectedBook = book;
   }
 }

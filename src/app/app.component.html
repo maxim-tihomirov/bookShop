@@ -1,2 +1,5 @@
-<app-book [book]="book" (selectBook)="selectBook($event)"></app-book>
-<app-cart></app-cart>
+<h1 #appTitle></h1>
+<div class="books-list">
+  <app-book [book]="book" (selectBook)="selectBook($event)" *ngFor="let book of books"></app-book>
+</div>
+<app-cart [selectedBook]="selectedBook"></app-cart>
