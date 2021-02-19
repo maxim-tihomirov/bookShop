@@ -14,5 +14,5 @@
   <div class="book__field">
     Price: <span>{{ book.price }}</span>
   </div>
-  <button class="book__button" [disabled]="!book.isAvailable">Buy</button>
+  <button class="book__button" [disabled]="!book.isAvailable" (click)="onBuy()">Buy</button>
 </div>

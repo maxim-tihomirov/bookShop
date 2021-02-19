@@ -16,6 +16,8 @@ module.exports = {
       rules: {
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
+        'class-methods-use-this': 'off',
+        'no-console': 'off',
       },
     },
     {

@@ -1,0 +1,51 @@
+$color-primary: #c45f40;
+$color-secondary: #f0efef;
+$color-accent: #9c0000;
+
+@mixin button-default {
+  cursor: pointer;
+  &:not([disabled]):hover {
+    opacity: 0.6;
+  }
+}
+
+.cart-item {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__group {
+    display: flex;
+    align-items: center;
+  }
+
+  &__delete-button {
+    padding-right: 0.5rem;
+    color: $color-accent;
+    @include button-default;
+  }
+
+  &__name {
+    font-size: 1.6rem;
+  }
+
+  .cart-item-amount {
+    display: flex;
+    align-items: center;
+
+    &__button {
+      display: flex;
+      font-size: 1.9rem;
+      padding: 0 0.5rem;
+      background-color: $color-secondary;
+      @include button-default;
+    }
+
+    &__value {
+      display: flex;
+      font-size: 1.9rem;
+      padding: 0 0.5rem;
+    }
+  }
+}

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Category, IBook } from 'src/app/models/book.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IBook } from 'src/app/models/book.model';
 
 @Component({
   selector: 'app-book',
@@ -9,16 +9,9 @@ import { Category, IBook } from 'src/app/models/book.model';
 export class BookComponent {
   @Input() book: IBook;
 
-  constructor() {
-    this.book = {
-      name: 'Book',
-      description: 'string',
-      price: 2,
-      category: Category.Horror,
-      createDate: 2,
-      isAvailable: true,
-    };
+  @Output() selectBook = new EventEmitter<IBook>();
 
-    // ngOnInit(): void {}
+  onBuy(): void {
+    this.selectBook.emit(this.book);
   }
 }
