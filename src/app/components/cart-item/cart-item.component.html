@@ -1,0 +1,18 @@
+<div class="cart-item">
+  <div class="cart-item__group">
+    <div class="cart-item__delete-button" (click)="onDeleteBookFromCart()">X</div>
+    <div class="cart-item__name">{{ selectedBook.name }}</div>
+  </div>
+
+  <div class="cart-item-amount">
+    <button
+      class="cart-item-amount__button"
+      [disabled]="amountOfBooks === 0"
+      (click)="onDecrementCount()"
+    >
+      -
+    </button>
+    <div class="cart-item-amount__value">{{ amountOfBooks }}</div>
+    <button class="cart-item-amount__button" (click)="onIncrementCount()">+</button>
+  </div>
+</div>

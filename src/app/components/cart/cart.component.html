@@ -1,0 +1,14 @@
+<div class="cart">
+  <div class="cart__title">Cart</div>
+  <div *ngIf="selectedBook; else cartEmpty">
+    <app-cart-item
+      (deleteBookFromCart)="onDeleteBookFromCart($event)"
+      [selectedBook]="book"
+      *ngFor="let book of selectedBooks"
+    ></app-cart-item>
+  </div>
+</div>
+
+<ng-template #cartEmpty>
+  <p class="cart-empty">Nothing selected</p>
+</ng-template>
