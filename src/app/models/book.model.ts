@@ -7,7 +7,7 @@ export interface IBook {
   isAvailable: boolean;
 }
 
-export const enum Category {
+export enum Category {
   Horror = 'Horror',
   Detective = 'Detective',
   Fantasy = 'Fantasy',

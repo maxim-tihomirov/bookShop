@@ -1,29 +1,39 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IBook } from 'src/app/models/book.model';
+import { CartService } from '../../services/cart.service';
+import { CartItem } from '../../models/cartItem.model';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnChanges {
-  @Input() selectedBook: IBook;
+export class CartComponent implements OnInit {
+  books: IBook[] = [];
 
-  selectedBooks: IBook[] = [];
+  cartItems: CartItem[];
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.selectedBook) {
-      if (this.selectedBook && !this.isContainSelectedBook(this.selectedBook)) {
-        this.selectedBooks.push(this.selectedBook);
-      }
-    }
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {
+    this.cartService.cartProducts.subscribe((value) => {
+      this.cartItems = value;
+    });
   }
 
   isContainSelectedBook(book: IBook): boolean {
-    return this.selectedBooks.indexOf(book) !== -1;
+    return this.books.indexOf(book) !== -1;
   }
 
-  onDeleteBookFromCart(book: IBook): void {
-    this.selectedBooks = this.selectedBooks.filter((currentBook) => currentBook !== book);
+  onDeleteBookFromCart(cartItem: CartItem): void {
+    this.cartService.removeBook(cartItem);
+  }
+
+  onIncreaseQuantity(cartItem: CartItem): void {
+    this.cartService.increaseQuantity(cartItem);
+  }
+
+  onDecreaseQuantity(cartItem: CartItem): void {
+    this.cartService.decreaseQuantity(cartItem);
   }
 }

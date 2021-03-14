@@ -1,10 +1,12 @@
 <div class="cart">
   <div class="cart__title">Cart</div>
-  <div *ngIf="selectedBook; else cartEmpty">
+  <div *ngIf="cartItems && cartItems.length > 0; else cartEmpty">
     <app-cart-item
       (deleteBookFromCart)="onDeleteBookFromCart($event)"
-      [selectedBook]="book"
-      *ngFor="let book of selectedBooks"
+      (increaseQuantity)="onIncreaseQuantity($event)"
+      (decreaseQuantity)="onDecreaseQuantity($event)"
+      *ngFor="let item of cartItems"
+      [cartItem]="item"
     ></app-cart-item>
   </div>
 </div>
