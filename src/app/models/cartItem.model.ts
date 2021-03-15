@@ -4,4 +4,5 @@ export interface CartItem {
   id: number;
   book: IBook;
   count: number;
+  itemSum: number;
 }

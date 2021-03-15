@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IBook } from 'src/app/models/book.model';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../models/cartItem.model';
@@ -13,16 +13,15 @@ export class CartComponent implements OnInit {
 
   cartItems: CartItem[];
 
+  totalSum = 0;
+
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.cartService.cartProducts.subscribe((value) => {
-      this.cartItems = value;
+      this.cartItems = value.cartItems;
+      this.totalSum = value.totalSum;
     });
-  }
-
-  isContainSelectedBook(book: IBook): boolean {
-    return this.books.indexOf(book) !== -1;
   }
 
   onDeleteBookFromCart(cartItem: CartItem): void {
