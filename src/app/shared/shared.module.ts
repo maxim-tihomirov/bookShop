@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OrdersModule } from './orders/orders.module';
+import { PricePipe } from '../pipes/price/price.pipe';
+import { ItemHoverDirective } from '../directives/item-hover.directive';
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule, OrdersModule],
-  exports: [CommonModule, OrdersModule],
+  declarations: [PricePipe, ItemHoverDirective],
+  imports: [CommonModule],
+  exports: [CommonModule, PricePipe, ItemHoverDirective],
 })
 export class SharedModule {}
