@@ -1,0 +1,14 @@
+<div class="cart-page" *ngIf="cartItems && cartItems.length > 0; else cartEmpty">
+  <app-cart-item
+    (deleteBookFromCart)="onDeleteBookFromCart($event)"
+    (increaseQuantity)="onIncreaseQuantity($event)"
+    (decreaseQuantity)="onDecreaseQuantity($event)"
+    *ngFor="let item of cartItems | orderBy: 'book.name': false"
+    [cartItem]="item"
+  ></app-cart-item>
+  <h3>Total price: {{ totalSum | price }}</h3>
+</div>
+
+<ng-template #cartEmpty>
+  <p class="cart-empty">Cart is empty</p>
+</ng-template>
