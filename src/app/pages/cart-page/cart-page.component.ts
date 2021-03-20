@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../models/cartItem.model';
+import { CartService } from '../../services/cart.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
+  selector: 'app-cart-page',
+  templateUrl: './cart-page.component.html',
+  styleUrls: ['./cart-page.component.scss'],
 })
-export class CartComponent implements OnInit {
+export class CartPageComponent implements OnInit {
   cartItems: CartItem[];
 
   totalSum = 0;
