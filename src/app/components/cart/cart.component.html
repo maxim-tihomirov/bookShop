@@ -5,7 +5,7 @@
       (deleteBookFromCart)="onDeleteBookFromCart($event)"
       (increaseQuantity)="onIncreaseQuantity($event)"
       (decreaseQuantity)="onDecreaseQuantity($event)"
-      *ngFor="let item of cartItems"
+      *ngFor="let item of cartItems | orderBy: 'book.name': false"
       [cartItem]="item"
     ></app-cart-item>
     <h3 class="cart__total-price">Total price: {{ totalSum | price }}</h3>
